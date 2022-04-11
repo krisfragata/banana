@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 .showcase nav{
     display: flex;
     justify-content: space-between;
@@ -62,4 +63,13 @@ a{
     margin: 0;
     /* padding: 2px; */
     /* margin-top: 2px; */
+}
+
+.folder{
+    margin: 0;
+}
+
+#process-folder{
+    object-fit: none;
+    object-position: 50px 50px;
 }
