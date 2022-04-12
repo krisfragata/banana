@@ -66,6 +66,7 @@ a{
 }
 
 .folder{
+    /* position: absolute; */
     margin: 0;
 }
 
