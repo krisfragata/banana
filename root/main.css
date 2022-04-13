@@ -66,11 +66,25 @@ a{
 }
 
 .folder{
-    /* position: absolute; */
+    position: absolute;
     margin: 0;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
 }
 
 #process-folder{
     object-fit: none;
-    object-position: 50px 50px;
+    right: 300px;
+    top: 10rem;    
+}
+
+#promo-folder{
+    right: 170px;
+    top: 400px;
+}
+
+#mv-folder{
+    top:20rem;
+    left: 100px;
 }
