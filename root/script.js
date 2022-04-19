@@ -10,34 +10,34 @@ $( document ).ready(function() {
     folder.addEventListener('dragend', dragEnd);
 
     // body.addEventListener('mousedown', drag)  
-   function dragStart(){
-       setTimeout(()=> (this.className="invisible"),0);
-   }
+//    function dragStart(){
+//        setTimeout(()=> (this.className="invisible"),0);
+//    }
    
-    console.log( "ready!" );
+//     console.log( "ready!" );
 
-    function dragEnd(){
+//     function dragEnd(){
         
-    }
+//     }
 
-    function move(id){
-        let element = document.getElementById('process-folder');
-        element.style.position = "absolute";
-        element.onmousedown = function(){
-            dragValue = element;
-        }
-    }
+//     function move(id){
+//         let element = document.getElementById('process-folder');
+//         element.style.position = "absolute";
+//         element.onmousedown = function(){
+//             dragValue = element;
+//         }
+//     }
 
-    document.addEventListener('mousemove',
-        function(e){
-            let x = e.pageX;
-            let y = e.pageY;
+//     document.addEventListener('mousemove',
+//         function(e){
+//             let x = e.pageX;
+//             let y = e.pageY;
 
-            dragValue.style.left = x+"px";
-            dragValue.style.top = y+"px";
+//             dragValue.style.left = x+"px";
+//             dragValue.style.top = y+"px";
 
-        }    
-    )
+//         }    
+//     )
     
 });
 

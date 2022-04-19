@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
+.body{
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    align-items: space-around;
+    display: grid;
+    justify-content: center;
+    /* background-image: url('Assets/banana\ split\ site\ background.png split\ site\ background.png'); */
+}
 
 .showcase nav{
     display: flex;
@@ -87,4 +96,18 @@ a{
 #mv-folder{
     top:20rem;
     left: 100px;
+}
+
+.container{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    place-items: center;
+    align-items: center;
+    width: 50%;
+    height: 500px;
+    background-color: rgb(255, 196, 67);
+    z-index: 4;
 }
