@@ -4,11 +4,27 @@ $( document ).ready(function() {
     let dragValue;
 
     // listeners 
-    window.addEventListener('load', move);
+    // window.addEventListener('load', move);
+    window.addEventListener('click', console.log('click'));
     
-    folder.addEventListener('dragstart', dragStart);
-    folder.addEventListener('dragend', dragEnd);
+    // folder.addEventListener('dragstart', dragStart);
+    // folder.addEventListener('dragend', dragEnd);
 
+
+    function hide(){
+        console.log('click');
+        let isHidden = false;
+        $(".close").click(()=>{
+            if(isHidden == true){
+                $(".container").removeClass('hidden');
+                isHidden = false;
+            }
+            else{
+                $('.close').addClass('hidden')
+                isHidden = true;
+            }
+        })
+    };
     // body.addEventListener('mousedown', drag)  
 //    function dragStart(){
 //        setTimeout(()=> (this.className="invisible"),0);
