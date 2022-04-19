@@ -26,6 +26,7 @@
 }
 
 .showcase .name{
+    position: relative;
     font-family: oscine, sans-serif;
     font-weight: 700;
     font-style: italic;
@@ -35,14 +36,21 @@
     flex-direction: row;
     justify-content: space-between;
     row-gap: 1rem;
+    cursor:pointer;
+
 }
 
 .showcase .banana{
+    position: relative;
     width: 20px;
-    max-height: 20px;
+    max-height: 10px;
     margin-right: 2rem;
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 1rem;
+    margin-top: 0rem;
+    /* top: 50%; */
+    /* left: 50%; */
 }
 
 .showcase .links{
@@ -110,11 +118,10 @@ a{
     height: 500px;
     background-color: rgb(255, 196, 67);
     box-shadow:  0 0px 5px 1px rgba(0, 0, 0, 0.2), 0 0.5px 5px 0 rgba(0, 0, 0, 0.08), inset 0 5px 2px 1px #0000, inset 0 -2px 3px 1px rgba(0, 0, 0, 0.1);
-
     z-index: 4;
 }
 
-.container .nav{
+.nav{
     position: fixed;
     /* /* width: 40px; */
     left:4px;
@@ -135,6 +142,20 @@ a{
 
 }
 
+.popUp{
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    /* height: 500px; */
+    background-color: rgb(255, 196, 67);
+    box-shadow:  0 0px 5px 1px rgba(0, 0, 0, 0.2), 0 0.5px 5px 0 rgba(0, 0, 0, 0.08), inset 0 5px 2px 1px #0000, inset 0 -2px 3px 1px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+/* toggle properties */
 .hidden{
     visibility: hidden;
     width: 0;
