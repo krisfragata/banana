@@ -7,7 +7,7 @@ $( document ).ready(function() {
     // let dragValue;
 
     // listeners 
-    // window.addEventListener('click', console.log('click'));
+    // functions and listeners for promo folder
     promo.addEventListener('click', (e)=>{
         const folder = document.querySelector('#promo-container')
         lastClicked = folder;
@@ -16,17 +16,29 @@ $( document ).ready(function() {
         isItHidden(folder);
     });
 
+    $('#promo-close').hover(()=>{
+        const link = document.querySelector('#promo-xmark');
+        link.classList.remove('hidden');
+    }, ()=>{$('#promo-xmark').addClass('hidden')})
+
     $('#promo-close').click(()=>{
         const close = document.querySelector('#promo-container')
         closeIt(close);
     })
 
+    
+// listeners and functions pertaining to the music video folder
     musicV.addEventListener('click', ()=>{
         const folder = document.querySelector('#mv-popUp');
         lastClicked = folder;
         $('.blueScreen').removeClass('hidden');
         isItHidden(folder);
     })
+
+    $('#mv-close').hover(()=>{
+        const link = document.querySelector('#mv-xmark');
+        link.classList.remove('hidden');
+    }, ()=>{$('#mv-xmark').addClass('hidden')})
 
     $('#mv-close').click(()=>{
         const close = document.querySelector('#mv-popUp');

@@ -6,10 +6,12 @@
     box-sizing: border-box;
 }
 
+
 .body{
     width: 100vw;
     height: 100vh;
     align-content: center;
+    cursor: url(/root/assets/banana-small.png);
     /* align-items: space-around;
     display: grid;
     justify-content: center; */
@@ -139,6 +141,8 @@ a{
     width: 20px;
     height: 20px;
     background-color: #AA3131;
+    text-align: center;
+    margin: 0;
 
 }
 
@@ -172,6 +176,7 @@ a{
     z-index: 2;
   
   }
+
 
 /* toggle properties */
 .hidden{
