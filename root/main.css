@@ -28,23 +28,23 @@
 }
 
 #banana2{
-    transition: 0.1s;
+    transition: 0.05s;
 }
 
 #banana3{
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 #banana4{
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 #banana5{
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 #banana6{
-    transition: 0.5s;
+    transition: 0.25s;
 }
 
 
@@ -135,6 +135,7 @@ a{
     width: 150px;
     cursor: pointer;
 }
+
 
 #process-folder{
     object-fit: none;

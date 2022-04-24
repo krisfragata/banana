@@ -3,19 +3,38 @@ $( document ).ready(function() {
     // const folder = document.querySelector('.folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
-    const cursor = document.querySelector('.banana-curse');
-    const trails = document.querySelector('.trail')
+    // const cursor = document.querySelector('.banana-curse');
+    // const trails = document.querySelector('.trail')
     let lastClicked;
     // let dragValue;
 
     // listeners 
 
-    // mouse changed to banana
+    // mouse changed to banana and all other mouse listeners
     document.addEventListener('mousemove',(e)=>{
         console.log('move')
         $('.banana-curse').css({left: e.pageX, top:e.pageY});
-        // cursor.style.right = e.pageX 
+        $('.trail').removeClass('hidden');
     })
+
+    $('.folder').hover(()=>{
+        console.log('hovered folder')
+        $('*').css({cursor: 'pointer'})
+        $('.cursor').addClass('hidden');
+        // $('.trail').addClass('hidden');
+    }, ()=>{
+        $('*').css({cursor:'none'})
+        $('.cursor').removeClass('hidden');
+});
+
+    $('.clickable').hover(()=>{
+        $('*').css({cursor: 'pointer'})
+        $('.cursor').addClass('hidden');
+    }, ()=>{
+        $('*').css({cursor:'none'})
+        $('.cursor').removeClass('hidden');
+    });
+
 
     // functions and listeners for promo folder
     promo.addEventListener('click', (e)=>{
