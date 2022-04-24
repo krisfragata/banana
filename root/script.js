@@ -3,10 +3,20 @@ $( document ).ready(function() {
     // const folder = document.querySelector('.folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
+    const cursor = document.querySelector('.banana-curse');
+    const trails = document.querySelector('.trail')
     let lastClicked;
     // let dragValue;
 
     // listeners 
+
+    // mouse changed to banana
+    document.addEventListener('mousemove',(e)=>{
+        console.log('move')
+        $('.banana-curse').css({left: e.pageX, top:e.pageY});
+        // cursor.style.right = e.pageX 
+    })
+
     // functions and listeners for promo folder
     promo.addEventListener('click', (e)=>{
         const folder = document.querySelector('#promo-container')
