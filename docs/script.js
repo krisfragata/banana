@@ -130,6 +130,47 @@ $( document ).ready(function() {
         const closeAgain = document.querySelector('.blueScreen');
         closeIt(closeAgain);
     })
+
+    // dragging folders
+    let activeDrag = false;
+    let xO;
+    let yO;
+    let x;
+    let y;
+    let offsetX = 0;
+    let offSetY = 0;
+
+    $('#process-folder').addEventListener('mousedown', dragStart, false);
+
+    function dragStart(e){
+        activeDrag = true;
+        xO = e.clientX - offsetX;
+        yO = e.clientY - offSetY;
+    }
+
+    function dragEnd(e){
+        xO = x;
+        yO = y;
+        activeDrag = false;
+    }
+
+    function drag(e){
+        if(activeDrag){
+            e.preventDefault();
+            x = e.clientX - xO;
+            y = e.clientY - yO;
+
+        }
+
+        offSetX = x;
+        offSetY = y;
+
+        moveFolder(x, y, process);
+    }
+
+    function moveFolder(xPos, yPos, folder){
+        folder.style.transform = "translate3d(" + x + "px," + y + "px, 0)";
+    }
     
     // folder.addEventListener('dragstart', dragStart);
     // folder.addEventListener('dragend', dragEnd);
