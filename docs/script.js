@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 
     // const folder = document.querySelector('.folder');
+    const process = document.querySelector('#process-folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
     // const cursor = document.querySelector('.banana-curse');
@@ -35,14 +36,56 @@ $( document ).ready(function() {
         $('.cursor').removeClass('hidden');
     });
 
+    // borders
+    $('.eat').click(()=>{
+        checkBorders();
+    })
+
+    process.addEventListener('click',()=>{
+        checkBorders();
+        areBorders(process);
+    })
+
+    promo.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(promo);
+    })
+
+    musicV.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(musicV);
+    })
+
+    function checkBorders(){
+        let allFolders = [process, promo, musicV];
+        for(let i = 0; i<allFolders.length; i++){
+            removeBorders(allFolders[i]);
+        }
+    }
+
+    function areBorders(folder){
+        if(!(folder.classList.contains('border'))){
+            folder.classList.add('border');
+        }
+    }
+
+    function removeBorders(folder){
+        if(folder.classList.contains('border')){
+            folder.classList.remove('border');
+        }
+    }
+
+    // functions and listeners for process folder
+   
 
     // functions and listeners for promo folder
-    promo.addEventListener('click', (e)=>{
+    promo.addEventListener('dblclick', (e)=>{
         const folder = document.querySelector('#promo-container')
         lastClicked = folder;
         e.preventDefault();
         console.log('promo clicked');
         isItHidden(folder);
+        // areBorders
     });
 
     $('#promo-close').hover(()=>{
@@ -57,7 +100,7 @@ $( document ).ready(function() {
 
     
 // listeners and functions pertaining to the music video folder
-    musicV.addEventListener('click', ()=>{
+    musicV.addEventListener('dblclick', ()=>{
         const folder = document.querySelector('#mv-popUp');
         lastClicked = folder;
         $('.blueScreen').removeClass('hidden');
@@ -103,36 +146,7 @@ $( document ).ready(function() {
             console.log('is not hidden');
         }
     };
-    // body.addEventListener('mousedown', drag)  
-//    function dragStart(){
-//        setTimeout(()=> (this.className="invisible"),0);
-//    }
-   
-//     console.log( "ready!" );
 
-//     function dragEnd(){
-        
-//     }
-
-//     function move(id){
-//         let element = document.getElementById('process-folder');
-//         element.style.position = "absolute";
-//         element.onmousedown = function(){
-//             dragValue = element;
-//         }
-//     }
-
-//     document.addEventListener('mousemove',
-//         function(e){
-//             let x = e.pageX;
-//             let y = e.pageY;
-
-//             dragValue.style.left = x+"px";
-//             dragValue.style.top = y+"px";
-
-//         }    
-//     )
-    
 });
 
    
