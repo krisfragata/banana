@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 261.23279 170.93764" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="d">
+   <feGaussianBlur stdDeviation="8.55961"/>
+  </filter>
+  <filter id="b">
+   <feGaussianBlur stdDeviation="7.90192"/>
+  </filter>
+  <filter id="c">
+   <feGaussianBlur stdDeviation="8.55953"/>
+  </filter>
+  <radialGradient id="a" cx="922.77" cy="191.71" r="398.09" gradientTransform="matrix(1 0 0 .55949 0 84.448)" gradientUnits="userSpaceOnUse">
+   <stop offset="0"/>
+   <stop stop-opacity="0" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g transform="matrix(.31194 0 0 .35145 -157.24 18.093)" stroke="url(#a)" stroke-width="2.8">
+  <path d="m594.21-29.62c-5.6108 0-10.125 4.2369-10.125 9.5v27.281h-48c-5.54 0-10 4.46-10 10v395.88h698.62v-395.88c0-5.54-4.46-10-10-10h-417.09v-27.281c0-5.2631-4.5142-9.5-10.125-9.5h-193.28z" filter="url(#d)"/>
+  <path d="m594.21-29.62c-5.6108 0-10.125 4.2369-10.125 9.5v27.281h-48c-5.54 0-10 4.46-10 10v395.88h698.62v-395.88c0-5.54-4.46-10-10-10h-417.09v-27.281c0-5.2631-4.5142-9.5-10.125-9.5h-193.28z" fill="#ffe680"/>
+  <path d="m540.23 28.366h668.92v384.67h-668.92z" filter="url(#b)"/>
+  <path d="m540.23 28.366h668.92v384.67h-668.92z" fill="#fff"/>
+  <path d="m649.12 63.725 670.34 4.2426-93.338 345.07h-698.62l121.62-349.31z" filter="url(#c)"/>
+  <path d="m649.12 63.725 670.34 4.2426-93.338 345.07h-698.62l121.62-349.31z" fill="#ffe680"/>
+ </g>
+</svg>
