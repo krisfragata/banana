@@ -1,25 +1,31 @@
 $( document ).ready(function() {
 
-    // const folder = document.querySelector('.folder');
     const process = document.querySelector('#process-folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
-    // const cursor = document.querySelector('.banana-curse');
-    // const trails = document.querySelector('.trail')
     let lastClicked;
-    // let dragValue;
+
+    // folder dragging variables
+    let activeDrag = false;
+    let target;
+    let xO = 0;
+    let yO = 0;
+    let x = 0;
+    let y = 0;
+    let offsetX = 0;
+    let offSetY = 0;
+
 
     // listeners 
 
     // mouse changed to banana and all other mouse listeners
     document.addEventListener('mousemove',(e)=>{
-        console.log('move')
+        e.preventDefault();
         $('.banana-curse').css({left: e.pageX, top:e.pageY});
         $('.trail').removeClass('hidden');
     })
 
     $('.folder').hover(()=>{
-        console.log('hovered folder')
         $('*').css({cursor: 'pointer'})
         $('.cursor').addClass('hidden');
         // $('.trail').addClass('hidden');
@@ -37,8 +43,9 @@ $( document ).ready(function() {
     });
 
     // borders
-    $('.eat').click(()=>{
+    $('.eat').click((e)=>{
         checkBorders();
+        dragEnd(e);
     })
 
     process.addEventListener('click',()=>{
@@ -83,7 +90,6 @@ $( document ).ready(function() {
         const folder = document.querySelector('#promo-container')
         lastClicked = folder;
         e.preventDefault();
-        console.log('promo clicked');
         isItHidden(folder);
         // areBorders
     });
@@ -120,7 +126,6 @@ $( document ).ready(function() {
 
 
     function closeIt(folder){
-        console.log('closed clicked');
         isItHidden(folder);
     };
     
@@ -132,26 +137,46 @@ $( document ).ready(function() {
     })
 
     // dragging folders
-    let activeDrag = false;
-    let xO;
-    let yO;
-    let x;
-    let y;
-    let offsetX = 0;
-    let offSetY = 0;
+    $('#process-folder').mousedown((e)=>{
+        dragStart(e);
+        target = '#process-folder';
+    });
+    $('#process-folder').mousemove((e)=>{
+        drag(e);
+    });
+    $('#process-folder').mouseup((e)=>{
+        dragEnd(e);
+        return;
+    });
 
-    $('#process-folder').addEventListener('mousedown', dragStart, false);
+    $('#promo-folder').mousedown((e)=>{
+        dragStart(e);
+        target = '#promo-folder';
+    });
+    $('#promo-folder').mousemove((e)=>{
+        drag(e);
+    });
+    $('#promo-folder').mouseup((e)=>{
+        dragEnd(e);
+    });
+    
 
     function dragStart(e){
-        activeDrag = true;
-        xO = e.clientX - offsetX;
-        yO = e.clientY - offSetY;
+        xO = e.pageX - offsetX;
+        yO = e.pageY - offSetY;
+        console.log('process')
+
+        // if(e.target == target){
+            activeDrag = true;
+        // }
+        console.log(activeDrag);
     }
 
     function dragEnd(e){
         xO = x;
         yO = y;
         activeDrag = false;
+        e.preventDefault();
     }
 
     function drag(e){
@@ -165,11 +190,15 @@ $( document ).ready(function() {
         offSetX = x;
         offSetY = y;
 
-        moveFolder(x, y, process);
+        moveFolder(x, y, target);
+
+        console.log('move');
+
     }
 
-    function moveFolder(xPos, yPos, folder){
-        folder.style.transform = "translate3d(" + x + "px," + y + "px, 0)";
+    function moveFolder(xPos, yPos, T){
+        $(T).css('transform', "translate3d(" + xPos + "px," + yPos + "px, 0)");
+        // T.style.transform = "translate3d(" + xPos + "px," + yPos + "px, 0)";
     }
     
     // folder.addEventListener('dragstart', dragStart);
@@ -177,14 +206,11 @@ $( document ).ready(function() {
 
 
     function isItHidden(folder){
-        console.log('click');
         if(folder.classList.contains('hidden')){
-            console.log('is hidden')
             folder.classList.remove('hidden');
         }
         else{
             folder.classList.add('hidden');
-            console.log('is not hidden');
         }
     };
 
