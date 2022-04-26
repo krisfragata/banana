@@ -15,6 +15,11 @@ $( document ).ready(function() {
     let offsetX = 0;
     let offSetY = 0;
 
+    // adding a  time to nav bar
+    let today = new Date();
+    // let date  = today.getDay();
+    document.querySelector('#date-time').innerHTML = today;
+
 
     // listeners 
 
@@ -177,6 +182,7 @@ $( document ).ready(function() {
         yO = y;
         activeDrag = false;
         e.preventDefault();
+        console.log(activeDrag)
     }
 
     function drag(e){
@@ -184,7 +190,6 @@ $( document ).ready(function() {
             e.preventDefault();
             x = e.clientX - xO;
             y = e.clientY - yO;
-
         }
 
         offSetX = x;
