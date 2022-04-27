@@ -4,6 +4,8 @@ $( document ).ready(function() {
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
     const about = document.querySelector('#about');
+    const game = document.querySelector('#game');
+    const why = document.querySelector('#why');
     let lastClicked;
 
     // folder dragging variables
@@ -49,9 +51,9 @@ $( document ).ready(function() {
     });
 
     // borders
-    $('.eat').click((e)=>{
+    $('#canvas').click((e)=>{
         checkBorders();
-        dragEnd(e);
+        // dragEnd(e);
     })
 
     process.addEventListener('click',()=>{
@@ -74,8 +76,20 @@ $( document ).ready(function() {
         areBorders(about);
     })
 
+    game.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(game);
+    })
+
+    why.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(why);
+    })
+
+
+
     function checkBorders(){
-        let allFolders = [process, promo, musicV, about];
+        let allFolders = [process, promo, musicV, about, game, why];
         for(let i = 0; i<allFolders.length; i++){
             removeBorders(allFolders[i]);
         }
