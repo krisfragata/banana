@@ -142,72 +142,8 @@ $( document ).ready(function() {
     })
 
     // dragging folders
-    $('#process-folder').mousedown((e)=>{
-        dragStart(e);
-        target = '#process-folder';
-    });
-    $('#process-folder').mousemove((e)=>{
-        drag(e);
-    });
-    $('#process-folder').mouseup((e)=>{
-        dragEnd(e);
-        return;
-    });
+    $('.folder').draggable();
 
-    $('#promo-folder').mousedown((e)=>{
-        dragStart(e);
-        target = '#promo-folder';
-    });
-    $('#promo-folder').mousemove((e)=>{
-        drag(e);
-    });
-    $('#promo-folder').mouseup((e)=>{
-        dragEnd(e);
-    });
-    
-
-    function dragStart(e){
-        xO = e.pageX - offsetX;
-        yO = e.pageY - offSetY;
-        console.log('process')
-
-        // if(e.target == target){
-            activeDrag = true;
-        // }
-        console.log(activeDrag);
-    }
-
-    function dragEnd(e){
-        xO = x;
-        yO = y;
-        activeDrag = false;
-        e.preventDefault();
-        console.log(activeDrag)
-    }
-
-    function drag(e){
-        if(activeDrag){
-            e.preventDefault();
-            x = e.clientX - xO;
-            y = e.clientY - yO;
-        }
-
-        offSetX = x;
-        offSetY = y;
-
-        moveFolder(x, y, target);
-
-        console.log('move');
-
-    }
-
-    function moveFolder(xPos, yPos, T){
-        $(T).css('transform', "translate3d(" + xPos + "px," + yPos + "px, 0)");
-        // T.style.transform = "translate3d(" + xPos + "px," + yPos + "px, 0)";
-    }
-    
-    // folder.addEventListener('dragstart', dragStart);
-    // folder.addEventListener('dragend', dragEnd);
 
 
     function isItHidden(folder){
