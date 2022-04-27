@@ -217,8 +217,10 @@ h3{
     height: auto;  
 }
 
-.iteration-files{
-    position: absolute;
+.file{
+    /* position: absolute; */
+    height: auto;
+    width: 100px;
 }
 
 
@@ -226,20 +228,60 @@ h3{
 
 .container{
     position: absolute;
-    display: block;
+    display: flex;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
-    height: 500px;
+    height: auto;
     background-color: #e9c576;
     box-shadow:  0 0px 5px 1px rgba(0, 0, 0, 0.2), 0 0.5px 5px 0 rgba(0, 0, 0, 0.08), inset 0 5px 2px 1px #0000, inset 0 -2px 3px 1px rgba(0, 0, 0, 0.1);
     z-index: 4;
 }
 
+.text{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0, auto;
+    /* min-width: 55vw; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* perspective: 200px;
+	animation: perspective 3s cubic-bezier(.35,.06,.92,.03) infinite;    */
+}
+
+/* @keyframes perspective {
+    0% { perspective: 100px; transform: scale(.5); }
+    100% { perspective: 10000px; transform: scale(1);	}
+} */
+
+.about{
+    font-family: oscine, Tahoma;
+    font-weight: 700;
+    font-size: 30px;
+    font-style: italic;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    margin: auto;
+    text-shadow: 2px 2px #000000;
+    transform-style: preserve-3d;
+    height: auto;
+    width: auto;
+}
+
+.about > * {
+    color: hsl(0, 0%, 100%);
+    font-variation-settings: 'wght' var(--weight);
+  }
+
+
+
 .nav{
     position: fixed;
-    /* /* width: 40px; */
     left:4px;
     top:4px; 
     z-index: 2;

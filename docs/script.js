@@ -1,23 +1,18 @@
 $( document ).ready(function() {
 
+    // folders
     const process = document.querySelector('#process-folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
     const about = document.querySelector('#about');
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
-    let lastClicked;
 
-    // folder dragging variables
-    let activeDrag = false;
-    let target;
-    let xO = 0;
-    let yO = 0;
-    let x = 0;
-    let y = 0;
-    let offsetX = 0;
-    let offSetY = 0;
+    // containers
+    const promoContainer = document.querySelector('#promo-container');
+    const mvContainer = document.querySelector('#mv-popUp');
 
+  
     // adding a  time to nav bar
     let today = new Date();
     // let date  = today.getDay();
@@ -87,7 +82,7 @@ $( document ).ready(function() {
     })
 
 
-
+    // check borders
     function checkBorders(){
         let allFolders = [process, promo, musicV, about, game, why];
         for(let i = 0; i<allFolders.length; i++){
@@ -115,6 +110,7 @@ $( document ).ready(function() {
         const folder = document.querySelector('#promo-container')
         lastClicked = folder;
         e.preventDefault();
+        $('.blueScreen').removeClass('hidden');
         isItHidden(folder);
         // areBorders
     });
@@ -125,7 +121,8 @@ $( document ).ready(function() {
     }, ()=>{$('#promo-xmark').addClass('hidden')})
 
     $('#promo-close').click(()=>{
-        const close = document.querySelector('#promo-container')
+        const close = document.querySelector('#promo-container');
+        $('.blueScreen').addClass('hidden');
         closeIt(close);
     })
 
@@ -149,14 +146,45 @@ $( document ).ready(function() {
         closeIt(close);
     })
 
+    // listeners and functions for about folder
+    about.addEventListener('dblclick',()=>{
+        // const folder = document.querySelector();
+        $('.blueScreen').removeClass('hidden');
+    })
+
+    // text animations
+    let tl = gsap.timeline(), 
+
+    split = new SplitText("#quote", {type:"words,chars"}), 
+
+    words = split.words; //an array of all the divs that wrap each character
+
+    gsap.set(".about", {perspective: 400});
+
+    tl.to(words, {
+      duration: 1.5,
+      "--weight": "300",
+      ease: "none",
+      color: "hsl(+=0, +=70%, +=20%)",
+      stagger: {
+        each: 0.4,
+      }
+    })
+
 
     function closeIt(folder){
         isItHidden(folder);
     };
     
     $('.blueScreen').click(()=>{
-        const close = document.querySelector('#mv-popUp');
-        closeIt(close);
+        let allFolders = [mvContainer, promoContainer];
+        for(let i = 0; i<allFolders.length; i++){
+            if(!allFolders[i].classList.contains('hidden')){
+                allFolders[i].classList.add('hidden');
+            }
+        }
+
+        // closeIt(allFolders);
         const closeAgain = document.querySelector('.blueScreen');
         closeIt(closeAgain);
     })
@@ -174,6 +202,10 @@ $( document ).ready(function() {
             folder.classList.add('hidden');
         }
     };
+
+    // function isFolderOpen(folder){
+
+    // }
 
 });
 
