@@ -3,6 +3,7 @@ $( document ).ready(function() {
     const process = document.querySelector('#process-folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
+    const about = document.querySelector('#about');
     let lastClicked;
 
     // folder dragging variables
@@ -68,8 +69,13 @@ $( document ).ready(function() {
         areBorders(musicV);
     })
 
+    about.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(about);
+    })
+
     function checkBorders(){
-        let allFolders = [process, promo, musicV];
+        let allFolders = [process, promo, musicV, about];
         for(let i = 0; i<allFolders.length; i++){
             removeBorders(allFolders[i]);
         }
