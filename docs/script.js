@@ -7,6 +7,10 @@ $( document ).ready(function() {
     const about = document.querySelector('#about');
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
+    const canvas = document.querySelector('#canvas')
+    let mouseDown = false;
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
 
     // containers
     const promoContainer = document.querySelector('#promo-container');
@@ -20,6 +24,18 @@ $( document ).ready(function() {
 
 
     // listeners 
+
+    // canvas listeners
+    window.addEventListener('mousedown', down);
+
+    function down(){
+        mouseDown = true;
+    }
+
+    function toggledraw(){
+        mouseDown = true;
+    }
+
 
     // mouse changed to banana and all other mouse listeners
     document.addEventListener('mousemove',(e)=>{

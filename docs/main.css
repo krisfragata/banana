@@ -85,8 +85,14 @@ canvas{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
     flex-direction: row;
     /* row-gap: 1rem; */
+}
+
+.name:hover h4{
+    color: #e9c576;
+    font-style: normal;
 }
 
 .showcase h4{
@@ -98,6 +104,8 @@ canvas{
     flex-direction: column;
     text-align: center;
     margin: auto;
+    transition: 300ms ease-in;
+
 }
 
 
