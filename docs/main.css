@@ -71,13 +71,17 @@ canvas{
     /* background-image: url('Assets/banana\ split\ site\ background.png split\ site\ background.png'); */
 }
 
+.showcase{
+    z-index: -10;
+}
+
 .showcase nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    background-color: #83220c;
-    z-index: 1;
+    background-color: rgba(131, 34, 12,0.6);
+    z-index: -10;
 }
 
 .showcase .name{

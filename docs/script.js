@@ -7,10 +7,21 @@ $( document ).ready(function() {
     const about = document.querySelector('#about');
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
-    const canvas = document.querySelector('#canvas')
+
+    // canvas elements
+    const canvas = document.querySelector('#canvas');
+    const context = canvas.getContext('2d');
     let mouseDown = false;
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
+    // background image fills canvas
+    let background = new Image();
+    background.src = 'assets/banana split site background.png';
+    background.onload = ()=>{
+        let banana = context.createPattern(image, 'repeat');
+        context.fillStyle = banana;
+        context.fill();
+    };
 
     // containers
     const promoContainer = document.querySelector('#promo-container');
@@ -26,7 +37,30 @@ $( document ).ready(function() {
     // listeners 
 
     // canvas listeners
-    window.addEventListener('mousedown', down);
+    window.addEventListener('mousedown', (e)=>{
+        mouseDown = true;
+        let mousePos = getMousePos(canvas, e);
+        draw(canvas, mousePos[0], mousePos[1])
+        clearCanvas();
+    });
+    window.addEventListener('mouseup',()=>{
+        mouseDown = false;
+    });
+    window.addEventListener('mousemove',
+    function(e){
+        if(mouseDown){
+            let mousePos = getMousePos(canvas, e);
+            let x = mousePos.x;
+            let y = mousePos.y;
+            draw(canvas, x, y);
+        }
+        else{
+            return;
+        }
+       
+    }
+    );
+    
 
     function down(){
         mouseDown = true;
@@ -36,6 +70,36 @@ $( document ).ready(function() {
         mouseDown = true;
     }
 
+    function getMousePos(canvas, e){
+        let space = canvas.getBoundingClientRect();
+        return{
+            x: e.clientX - space.left,
+            y: e.clientY - space.top
+        }
+
+    }
+
+    function draw(canvas, x, y){
+        if(mouseDown){
+            context.fillStyle = 'rgba(187,46,29, 0.6)';
+            context.beginPath();
+            context.arc(x, y, 30, 0, 2*Math.PI);
+            context.fillStyle = 'rgba(187, 46, 29, 0.6)';
+            context.fill();
+        }
+    }
+
+    function fadeOut(){
+        context.fillStyle = 'rgba(187, 46, 29, 0.1)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        setTimeout(fadeOut, 125);
+    }
+
+    function clearCanvas(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // fadeOut();
 
     // mouse changed to banana and all other mouse listeners
     document.addEventListener('mousemove',(e)=>{
@@ -168,24 +232,7 @@ $( document ).ready(function() {
         $('.blueScreen').removeClass('hidden');
     })
 
-    // text animations
-    // let tl = gsap.timeline(), 
-
-    // split = new SplitText("#quote", {type:"words,chars"}), 
-
-    // words = split.words; //an array of all the divs that wrap each character
-
-    // gsap.set(".about", {perspective: 400});
-
-    // tl.to(words, {
-    //   duration: 1.5,
-    //   "--weight": "300",
-    //   ease: "none",
-    //   color: "hsl(+=0, +=70%, +=20%)",
-    //   stagger: {
-    //     each: 0.4,
-    //   }
-    // })
+ 
 
 
     function closeIt(folder){
