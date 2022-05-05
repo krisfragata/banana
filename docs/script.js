@@ -234,6 +234,18 @@ $( document ).ready(function() {
         $('.blueScreen').removeClass('hidden');
     })
 
+    // listeners and functions for music player
+    $('#player-close').hover(()=>{
+        const link = document.querySelector('#player-xmark');
+        link.classList.remove('hidden');
+    }, ()=>{$('#player-xmark').addClass('hidden')})
+
+    $('#player-close').click(()=>{
+        const close = document.querySelector('.player');
+        $('.blueScreen').addClass('hidden');
+        closeIt(close);
+    })
+
  
 
 
