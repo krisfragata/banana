@@ -232,7 +232,7 @@ h3{
 .file{
     /* position: absolute; */
     height: auto;
-    width: 150px;
+    width: 120px;
 }
 
 
@@ -242,7 +242,7 @@ h3{
     position: absolute;
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     top: 50%;
     left: 50%;
@@ -259,14 +259,41 @@ h3{
 .container .iteration-files{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     padding: 30px;
-    height: 200px;
+    height: 170px;
     width: 300px;
-    border: 20px solid transparent;
+    border: 4px solid ;
+    border-color:rgba(149, 120, 58, 0.9) ;
+}
+
+
+.nav .folder-title{
+    padding: 4px;
+    margin-left: 10px;
+}
+
+.nav-header{
+    width: auto;
+    height: auto;
+    background-color:  rgba(149, 120, 58, 0.9);
 
 }
 
 h4{
+    font-family: oscine,Tahoma;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgb(131, 34, 12);
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    /* text-shadow: 2px 2px #000000; */
+
+}
+
+h5{
     font-family: oscine,Tahoma;
     font-weight: 600;
     font-style: normal;
@@ -275,10 +302,11 @@ h4{
     flex-direction: column;
     text-align: center;
     margin: auto;
-    transition: 300ms ease-in;
-    /* text-shadow: 2px 2px #000000; */
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 
 }
+
+
 
 .text{
     position: absolute;
@@ -348,16 +376,11 @@ h4{
     z-index: 2;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     cursor:pointer;
 }
 
-.nav-header{
-    width: 300px;
-    height: auto;
-    background-color:  rgba(149, 120, 58, 0.9);
-
-}
 
 .close{
     border-style: solid;

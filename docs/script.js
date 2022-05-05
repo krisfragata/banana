@@ -7,6 +7,7 @@ $( document ).ready(function() {
     const about = document.querySelector('#about');
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
+    const file = document.querySelector('.file');
 
     // canvas elements
     const canvas = document.querySelector('#canvas');
@@ -161,6 +162,11 @@ $( document ).ready(function() {
     why.addEventListener('click', ()=>{
         checkBorders();
         areBorders(why);
+    })
+
+    $('.file').click(()=>{
+        checkBorders();
+        areBorders(file);
     })
 
 
