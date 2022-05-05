@@ -14,14 +14,8 @@ $( document ).ready(function() {
     let mouseDown = false;
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-    // background image fills canvas
-    let background = new Image();
-    background.src = 'assets/banana split site background.png';
-    background.onload = ()=>{
-        let banana = context.createPattern(image, 'repeat');
-        context.fillStyle = banana;
-        context.fill();
-    };
+   
+   
 
     // containers
     const promoContainer = document.querySelector('#promo-container');
@@ -124,6 +118,14 @@ $( document ).ready(function() {
         $('*').css({cursor:'none'})
         $('.cursor').removeClass('hidden');
     });
+
+    $('.player').hover(()=>{
+        $('*').css({cursor: 'pointer'});
+        $('.cursor').addClass('hidden');
+    }, ()=>{
+        $('*').css({cursor:'none'})
+        $('.cursor').removeClass('hidden');
+    })
 
     // borders
     $('#canvas').click((e)=>{
@@ -252,8 +254,10 @@ $( document ).ready(function() {
         closeIt(closeAgain);
     })
 
-    // dragging folders
+    // dragging items
     $('.folder').draggable();
+    $('.player').draggable();
+    
 
 
 
