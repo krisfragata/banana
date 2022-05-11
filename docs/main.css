@@ -71,6 +71,10 @@ canvas{
     /* background-image: url('Assets/banana\ split\ site\ background.png split\ site\ background.png'); */
 }
 
+.loading-container{
+    
+}
+
 .showcase{
     z-index: -10;
 }
