@@ -8,6 +8,7 @@ $( document ).ready(function() {
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
     const file = document.querySelector('.file');
+    const credit = document.querySelector('#credit');
 
     // canvas elements
     const canvas = document.querySelector('#canvas');
@@ -164,6 +165,11 @@ $( document ).ready(function() {
         areBorders(why);
     })
 
+    credit.addEventListener('click', ()=>{
+        checkBorders();
+        areBorders(credit);
+    })
+
     $('.file').click(()=>{
         checkBorders();
         areBorders(file);
@@ -172,7 +178,7 @@ $( document ).ready(function() {
 
     // check borders
     function checkBorders(){
-        let allFolders = [process, promo, musicV, about, game, why];
+        let allFolders = [process, promo, musicV, about, game, why, credit];
         for(let i = 0; i<allFolders.length; i++){
             removeBorders(allFolders[i]);
         }
@@ -234,6 +240,14 @@ $( document ).ready(function() {
         closeIt(close);
     })
 
+    // listeners and functions pertaining to game function
+    game.addEventListener('dblclick', ()=>{
+        const folder = document.querySelector('#mv-popUp');
+        $('.blueScreen').removeClass('hidden');
+        isItHidden(folder);
+    })
+
+
     // listeners and functions for about folder
     about.addEventListener('dblclick',()=>{
         // const folder = document.querySelector();
@@ -260,7 +274,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer];
+        let allFolders = [mvContainer, promoContainer,];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');

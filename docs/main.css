@@ -215,6 +215,15 @@ h3{
     top: 500px;
 }
 
+#credit{
+    left: 300px;
+    top: 600px;
+    height: auto;
+    width: 124px;
+    /* height: 70.5%; */
+    /* width: auto; */
+}
+
 
 
 #promo-folder{
