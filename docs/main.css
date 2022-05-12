@@ -18,6 +18,8 @@ canvas{
     z-index: 0;
 }
 
+
+
 .banana-curse{
     position: absolute;
     transform:translate(-50%,-50%);
@@ -323,9 +325,11 @@ h5{
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    align-items: center;
     text-align: center;
-    margin: 0, auto;
+    /* margin: 0, auto; */
     z-index: 10;
     height: 100vh;
     width: 100vw;
@@ -336,18 +340,14 @@ h5{
 }
 
 .loader{
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
+    pointer-events: auto;
+    background-color: rgba(131, 34, 12, );
+    opacity: 85%;
+    width: auto;
+
 }
 
 .loader p{
-    display: flex;
-    flex-direction: column;
     font-family: oscine, Tahoma;
     font-weight: 700;
     font-size: 60px;
@@ -359,12 +359,24 @@ h5{
     transform-style: preserve-3d;
     height: auto;
     width: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
 
 #about-container > * {
     color: hsl(0, 0%, 100%);
     font-variation-settings: 'wght' var(--weight);
   }
+
+#arrow{
+    /* position: absolute; */
+    pointer-events: visible;
+    height: auto;
+    width: 4%;
+    z-index: 10;
+    cursor: pointer;
+}
 
 
 /* music player */
@@ -439,10 +451,10 @@ h5{
 
 .blueScreen{
     position:fixed;
-    background-color: rgba(131, 34, 12, 0.9);
+    background-color: rgba(131, 34, 12, 1);
     width:100vw;
     height: 100vh;
-    opacity: 75%;
+    opacity: 85%;
     z-index: 2;
   
   }

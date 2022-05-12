@@ -4,11 +4,11 @@ $( document ).ready(function() {
     const process = document.querySelector('#process-folder');
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
-    const about = document.querySelector('#about');
     const game = document.querySelector('#game');
     const why = document.querySelector('#why');
     const file = document.querySelector('.file');
     const credit = document.querySelector('#credit');
+    const about = document.querySelector('#about')
 
     // canvas elements
     const canvas = document.querySelector('#canvas');
@@ -22,6 +22,10 @@ $( document ).ready(function() {
     // containers
     const promoContainer = document.querySelector('#promo-container');
     const mvContainer = document.querySelector('#mv-popUp');
+    const loadingContainer = document.querySelector('.loading-container')
+    const aboutContainer = document.querySelector('#about-container1');
+    const aboutContainer2 = document.querySelector('#about-container2')
+
 
   
     // adding a  time to nav bar
@@ -253,7 +257,14 @@ $( document ).ready(function() {
     about.addEventListener('dblclick',()=>{
         // const folder = document.querySelector();
         $('.blueScreen').removeClass('hidden');
+        loadingContainer.classList.remove('hidden');
     })
+
+    $('#arrow').addEventListener('click',()=>{
+        
+    })
+
+
 
     // listeners and functions for music player
     $('#player-close').hover(()=>{
@@ -275,7 +286,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer,];
+        let allFolders = [mvContainer, promoContainer, loadingContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
