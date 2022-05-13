@@ -17,6 +17,8 @@ $( document ).ready(function() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
    
+    // text elements
+    
    
 
     // containers
@@ -260,9 +262,16 @@ $( document ).ready(function() {
         loadingContainer.classList.remove('hidden');
     })
 
-    $('#arrow').addEventListener('click',()=>{
-        
-    })
+    $('#arrow').click(()=>{
+        if(aboutContainer2.classList.contains('hidden')){
+            aboutContainer.classList.add('hidden');
+            aboutContainer2.classList.remove('hidden');
+        }
+        else{
+            aboutContainer2.classList.add('hidden');
+            aboutContainer.classList.remove('hidden');
+        }
+    });
 
 
 
