@@ -10,6 +10,9 @@ $( document ).ready(function() {
     const credit = document.querySelector('#credit');
     const about = document.querySelector('#about')
 
+    // nav section
+    const pageTitle = document.querySelector('.page-title')
+
     // canvas elements
     const canvas = document.querySelector('#canvas');
     const context = canvas.getContext('2d');
@@ -27,7 +30,7 @@ $( document ).ready(function() {
     const strAboutText2 = aboutText2.textContent;
     const splitAboutText2 = strAboutText2.split("");
     
-    // animating text
+    // animating about text
     aboutText.textContent = "";
     for(let i=0; i<splitAboutText.length; i++){
         aboutText.innerHTML +="<span class=\"animate\" id=\"aboutPg1\">" + splitAboutText[i] + "</span>"
@@ -37,8 +40,10 @@ $( document ).ready(function() {
     for(let i=0; i<splitAboutText2.length; i++){
         aboutText2.innerHTML +="<span class=\"animate\" id=\"aboutPg2\">" + splitAboutText2[i] + "</span>"
     }
+    // let charSave1 = 0;
+    // let charSave2 = 0;
     let char = 0;
-    let timer = setInterval(onTick, 10, aboutText, splitAboutText, "#aboutPg1"); 
+    let timer = setInterval(onTick, 17, aboutText, splitAboutText, "#aboutPg1"); 
 
     function onTick(text, split, id){
         const span = text.querySelectorAll(id)[char];
@@ -245,6 +250,7 @@ $( document ).ready(function() {
         lastClicked = folder;
         e.preventDefault();
         $('.blueScreen').removeClass('hidden');
+        pageTitle.textContent = "iterations";
         isItHidden(folder);
         // areBorders
     });
@@ -258,6 +264,7 @@ $( document ).ready(function() {
         const close = document.querySelector('#promo-container');
         $('.blueScreen').addClass('hidden');
         closeIt(close);
+        pageTitle.textContent = "";
     })
 
     
@@ -266,6 +273,7 @@ $( document ).ready(function() {
         const folder = document.querySelector('#mv-popUp');
         lastClicked = folder;
         $('.blueScreen').removeClass('hidden');
+        pageTitle.textContent = "Music Video"
         isItHidden(folder);
     })
 
@@ -277,12 +285,14 @@ $( document ).ready(function() {
     $('#mv-close').click(()=>{
         const close = document.querySelector('#mv-popUp');
         $('.blueScreen').addClass('hidden');
+        pageTitle.textContent = "";
         closeIt(close);
     })
 
     // listeners and functions pertaining to game function
     game.addEventListener('dblclick', ()=>{
         const folder = document.querySelector('#mv-popUp');
+        pageTitle.textContent = "Banana Split Game";
         $('.blueScreen').removeClass('hidden');
         isItHidden(folder);
     })
@@ -293,6 +303,7 @@ $( document ).ready(function() {
         // const folder = document.querySelector();
         $('.blueScreen').removeClass('hidden');
         loadingContainer.classList.remove('hidden');
+        pageTitle.textContent = "About Banana Split";
     })
 
     $('#arrow').click(()=>{
@@ -300,17 +311,31 @@ $( document ).ready(function() {
             aboutContainer.classList.add('hidden');
             aboutContainer2.classList.remove('hidden');
             char = 0;
-            timer = setInterval(onTick ,10, aboutText2, splitAboutText2, "#aboutPg2");
+            clearInterval(timer);
+            timer = setInterval(onTick ,12, aboutText2, splitAboutText2, "#aboutPg2");
 
         }
         else{
             aboutContainer2.classList.add('hidden');
             aboutContainer.classList.remove('hidden');
             char = 0;
-            timer = setInterval(onTick ,10, aboutText, splitAboutText, "#aboutPg1");
+            clearInterval(timer);
+            timer = setInterval(onTick ,12, aboutText, splitAboutText, "#aboutPg1");
         }
     });
 
+        // listeners for about 
+        $('#text-close').hover(()=>{
+            const link = document.querySelector('#about-xmark');
+            link.classList.remove('hidden');
+        }, ()=>{$('#about-xmark').addClass('hidden')})
+    
+        $('#text-close').click(()=>{
+            const close = document.querySelector('.loading-container');
+            $('.blueScreen').addClass('hidden');
+            pageTitle.textContent = "";
+            closeIt(close);
+        })
 
 
     // listeners and functions for music player
@@ -340,6 +365,7 @@ $( document ).ready(function() {
             }
         }
 
+        pageTitle.textContent = "";
         // closeIt(allFolders);
         const closeAgain = document.querySelector('.blueScreen');
         closeIt(closeAgain);
