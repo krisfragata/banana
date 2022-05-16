@@ -17,9 +17,42 @@ $( document ).ready(function() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
    
-    // text elements
+    // text elements for about
+    const aboutText = document.querySelector('.about-text')
+    const strAboutText = aboutText.textContent;
+    const splitAboutText = strAboutText.split("");
+    // aboutText.textContent = "";
+
+    const aboutText2 = document.querySelector('.about-text2');
+    const strAboutText2 = aboutText2.textContent;
+    const splitAboutText2 = strAboutText2.split("");
     
-   
+    // animating text
+    aboutText.textContent = "";
+    for(let i=0; i<splitAboutText.length; i++){
+        aboutText.innerHTML +="<span class=\"animate\" id=\"aboutPg1\">" + splitAboutText[i] + "</span>"
+    }
+
+    aboutText2.textContent = "";
+    for(let i=0; i<splitAboutText2.length; i++){
+        aboutText2.innerHTML +="<span class=\"animate\" id=\"aboutPg2\">" + splitAboutText2[i] + "</span>"
+    }
+    let char = 0;
+    let timer = setInterval(onTick, 10, aboutText, splitAboutText, "#aboutPg1"); 
+
+    function onTick(text, split, id){
+        const span = text.querySelectorAll(id)[char];
+        span.classList.add('fade');
+        char++;
+        if(char === split.length){
+            // load++
+            clearInterval(timer);
+            timer = null;
+            return;
+        }
+    }
+
+
 
     // containers
     const promoContainer = document.querySelector('#promo-container');
@@ -28,12 +61,12 @@ $( document ).ready(function() {
     const aboutContainer = document.querySelector('#about-container1');
     const aboutContainer2 = document.querySelector('#about-container2')
 
-
   
     // adding a  time to nav bar
     let today = new Date();
     // let date  = today.getDay();
     document.querySelector('#date-time').innerHTML = today;
+
 
 
     // listeners 
@@ -266,10 +299,15 @@ $( document ).ready(function() {
         if(aboutContainer2.classList.contains('hidden')){
             aboutContainer.classList.add('hidden');
             aboutContainer2.classList.remove('hidden');
+            char = 0;
+            timer = setInterval(onTick ,10, aboutText2, splitAboutText2, "#aboutPg2");
+
         }
         else{
             aboutContainer2.classList.add('hidden');
             aboutContainer.classList.remove('hidden');
+            char = 0;
+            timer = setInterval(onTick ,10, aboutText, splitAboutText, "#aboutPg1");
         }
     });
 
