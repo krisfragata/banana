@@ -43,7 +43,7 @@ $( document ).ready(function() {
     // let charSave1 = 0;
     // let charSave2 = 0;
     let char = 0;
-    let timer = setInterval(onTick, 17, aboutText, splitAboutText, "#aboutPg1"); 
+    let timer = setInterval(onTick, 16, aboutText, splitAboutText, "#aboutPg1"); 
 
     function onTick(text, split, id){
         const span = text.querySelectorAll(id)[char];
@@ -53,6 +53,8 @@ $( document ).ready(function() {
             // load++
             clearInterval(timer);
             timer = null;
+            $('#text-close').removeClass('hidden');
+            $('#arrow').removeClass('hidden');
             return;
         }
     }
@@ -307,6 +309,7 @@ $( document ).ready(function() {
     })
 
     $('#arrow').click(()=>{
+        $('#text-close').removeClass('hidden');
         if(aboutContainer2.classList.contains('hidden')){
             aboutContainer.classList.add('hidden');
             aboutContainer2.classList.remove('hidden');
@@ -324,6 +327,7 @@ $( document ).ready(function() {
         }
     });
 
+
         // listeners for about 
         $('#text-close').hover(()=>{
             const link = document.querySelector('#about-xmark');
@@ -337,6 +341,11 @@ $( document ).ready(function() {
             closeIt(close);
         })
 
+    why.addEventListener('dblclick', ()=>{
+        $('.blueScreen').removeClass('hidden');
+    })
+
+    
 
     // listeners and functions for music player
     $('#player-close').hover(()=>{
