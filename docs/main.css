@@ -371,6 +371,10 @@ h5{
     overflow-y: auto;
 }
 
+#why-text{
+    font-size: 55px;
+}
+
 .animate{
     opacity: 0;
     transition: all 0.5s ease;
@@ -495,7 +499,7 @@ h5{
     pointer-events: visible;
 }
 
-#text-close{
+.text-close{
     border-style: solid;
     border-color: #e9c576;
     width: 30px;

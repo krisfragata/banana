@@ -29,19 +29,31 @@ $( document ).ready(function() {
     const aboutText2 = document.querySelector('.about-text2');
     const strAboutText2 = aboutText2.textContent;
     const splitAboutText2 = strAboutText2.split("");
-    
+    let whyClicked = false;
+
     // animating about text
     aboutText.textContent = "";
     for(let i=0; i<splitAboutText.length; i++){
-        aboutText.innerHTML +="<span class=\"animate\" id=\"aboutPg1\">" + splitAboutText[i] + "</span>"
+        aboutText.innerHTML +="<span class=\"animate\" id=\"aboutPg1\">" + splitAboutText[i] + "</span>";
     }
 
     aboutText2.textContent = "";
     for(let i=0; i<splitAboutText2.length; i++){
-        aboutText2.innerHTML +="<span class=\"animate\" id=\"aboutPg2\">" + splitAboutText2[i] + "</span>"
+        aboutText2.innerHTML +="<span class=\"animate\" id=\"aboutPg2\">" + splitAboutText2[i] + "</span>";
     }
-    // let charSave1 = 0;
-    // let charSave2 = 0;
+
+    // text elements for why bananas page
+    const whyText = document.querySelector('#why-text');
+    const strWhyText = whyText.textContent;
+    const splitWhyText = strWhyText.split("");
+
+    // animating why bananas text
+    whyText.textContent = "";
+    for(let i=0; i<splitWhyText.length; i++){
+        whyText.innerHTML +="<span class=\"animate\" id=\"whyPg\">" + splitWhyText[i] + "</span>";
+    }
+
+    
     let char = 0;
     let timer = setInterval(onTick, 16, aboutText, splitAboutText, "#aboutPg1"); 
 
@@ -53,10 +65,18 @@ $( document ).ready(function() {
             // load++
             clearInterval(timer);
             timer = null;
-            $('#text-close').removeClass('hidden');
+            if(!$('#arrow').hasClass('hidden')){
+                $('#about-close').removeClass('hidden');
+            }
             $('#arrow').removeClass('hidden');
+
+            if(whyClicked){
+                $('#why-close').removeClass('hidden');
+            }
+
             return;
         }
+
     }
 
 
@@ -309,7 +329,7 @@ $( document ).ready(function() {
     })
 
     $('#arrow').click(()=>{
-        $('#text-close').removeClass('hidden');
+        $('#about-close').removeClass('hidden');
         if(aboutContainer2.classList.contains('hidden')){
             aboutContainer.classList.add('hidden');
             aboutContainer2.classList.remove('hidden');
@@ -329,20 +349,41 @@ $( document ).ready(function() {
 
 
         // listeners for about 
-        $('#text-close').hover(()=>{
+        $('#about-close').hover(()=>{
             const link = document.querySelector('#about-xmark');
             link.classList.remove('hidden');
         }, ()=>{$('#about-xmark').addClass('hidden')})
     
-        $('#text-close').click(()=>{
+        $('#about-close').click(()=>{
             const close = document.querySelector('.loading-container');
             $('.blueScreen').addClass('hidden');
             pageTitle.textContent = "";
             closeIt(close);
         })
 
+
+        // why bananas
     why.addEventListener('dblclick', ()=>{
         $('.blueScreen').removeClass('hidden');
+        pageTitle.textContent = "why Bananas??"
+        $('#why-page').removeClass('hidden');
+        whyClicked = true;
+        char = 0;
+        clearInterval(timer);
+        timer = setInterval(onTick, 15, whyText, splitWhyText, "#whyPg");
+    })
+
+    // listeners for why bananas 
+    $('#why-close').hover(()=>{
+        const link = document.querySelector('#why-xmark');
+        link.classList.remove('hidden');
+    }, ()=>{$('#why-xmark').addClass('hidden')})
+
+    $('#why-close').click(()=>{
+        const close = document.querySelector('#why-page');
+        $('.blueScreen').addClass('hidden');
+        pageTitle.textContent = "";
+        closeIt(close);
     })
 
     
