@@ -8,7 +8,8 @@ $( document ).ready(function() {
     const why = document.querySelector('#why');
     const file = document.querySelector('.file');
     const credit = document.querySelector('#credit');
-    const about = document.querySelector('#about')
+    const about = document.querySelector('#about');
+    const kris = document.querySelector('.kris');
 
     // nav section
     const pageTitle = document.querySelector('.page-title')
@@ -262,6 +263,11 @@ $( document ).ready(function() {
             folder.classList.remove('border');
         }
     }
+
+    // functions and listeners for Kris Fragata title
+    kris.addEventListener('click', ()=>{
+        $('.blueScreen').removeClass('hidden');
+    })
 
     // functions and listeners for process folder
    
