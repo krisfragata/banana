@@ -492,6 +492,11 @@ h5{
 
 }
 
+.close-border{
+    border: 2px solid #f4b23f;
+    border-radius: 5px;
+}
+
 .text-nav{
     position: fixed;
     top: 40px;

@@ -334,6 +334,8 @@ $( document ).ready(function() {
         pageTitle.textContent = "About Banana Split";
     })
 
+    $('#')
+
     $('#arrow').click(()=>{
         $('#about-close').removeClass('hidden');
         if(aboutContainer2.classList.contains('hidden')){
@@ -356,11 +358,11 @@ $( document ).ready(function() {
 
         // listeners for about 
         $('#about-close').hover(()=>{
-            const link = document.querySelector('#about-xmark');
-            link.classList.remove('hidden');
-        }, ()=>{$('#about-xmark').addClass('hidden')})
+            const link = document.querySelector('#about-close');
+            link.classList.add('close-border');
+        }, ()=>{$('#about-close').removeClass('close-border')})
     
-        $('#about-close').click(()=>{
+        $('#about-nav').click(()=>{
             const close = document.querySelector('.loading-container');
             $('.blueScreen').addClass('hidden');
             pageTitle.textContent = "";
@@ -381,11 +383,11 @@ $( document ).ready(function() {
 
     // listeners for why bananas 
     $('#why-close').hover(()=>{
-        const link = document.querySelector('#why-xmark');
-        link.classList.remove('hidden');
-    }, ()=>{$('#why-xmark').addClass('hidden')})
+        const link = document.querySelector('#why-close');
+        link.classList.add('close-border');
+    }, ()=>{$('#why-close').removeClass('close-border')})
 
-    $('#why-close').click(()=>{
+    $('#why-nav').click(()=>{
         const close = document.querySelector('#why-page');
         $('.blueScreen').addClass('hidden');
         pageTitle.textContent = "";
