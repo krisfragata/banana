@@ -21,6 +21,7 @@ $( document ).ready(function() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
+
     // animating intro text
     const introText = document.querySelector('.intro-text');
     const strIntroText = introText.textContent;
@@ -30,6 +31,7 @@ $( document ).ready(function() {
     for(let i=0; i<splitIntroText.length; i++){
         introText.innerHTML +="<span class=\"animate\" id=\"introPg\">" + splitIntroText[i] + "</span>";
     }
+
    
     // text elements for about
     const aboutText = document.querySelector('.about-text')
@@ -126,6 +128,12 @@ $( document ).ready(function() {
     const whyPage = document.querySelector('#why-page');
     const introContainer = document.querySelector('#intro-container');
 
+
+    // window.addEventListener('click',()=>{
+    //     closeIt(introContainer);
+    //     $('.blueScreen').addClass('hidden');
+    // })
+
   
     // adding a  time to nav bar
     let today = new Date();
@@ -143,6 +151,7 @@ $( document ).ready(function() {
         let mousePos = getMousePos(canvas, e);
         draw(canvas, mousePos[0], mousePos[1])
         clearCanvas();
+
     });
     window.addEventListener('mouseup',()=>{
         mouseDown = false;
