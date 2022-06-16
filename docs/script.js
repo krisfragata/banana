@@ -326,6 +326,13 @@ $( document ).ready(function() {
         }
         $('.blueScreen').removeClass('hidden');
         $('#kris-container').removeClass('hidden');
+
+        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, creditContainer];
+        for(let i = 0; i<allFolders.length; i++){
+            if(!allFolders[i].classList.contains('hidden')){
+                allFolders[i].classList.add('hidden');
+            }
+        }
     })
 
     // functions and listeners for process folder
