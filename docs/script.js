@@ -20,6 +20,16 @@ $( document ).ready(function() {
     let mouseDown = false;
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
+
+    // animating intro text
+    const introText = document.querySelector('.intro-text');
+    const strIntroText = introText.textContent;
+    const splitIntroText = strIntroText.split("");
+
+    introText.textContent = "";
+    for(let i=0; i<splitIntroText.length; i++){
+        introText.innerHTML +="<span class=\"animate\" id=\"introPg\">" + splitIntroText[i] + "</span>";
+    }
    
     // text elements for about
     const aboutText = document.querySelector('.about-text')
@@ -43,6 +53,8 @@ $( document ).ready(function() {
         aboutText2.innerHTML +="<span class=\"animate\" id=\"aboutPg2\">" + splitAboutText2[i] + "</span>";
     }
 
+
+
     // text elements for why bananas page
     const whyText = document.querySelector('#why-text');
     const strWhyText = whyText.textContent;
@@ -65,7 +77,9 @@ $( document ).ready(function() {
 
     
     let char = 0;
-    let timer = setInterval(onTick, 16, aboutText, splitAboutText, "#aboutPg1"); 
+    let timer = setInterval(onTick, 16, introText, splitIntroText, "#introPg"); 
+    // let timer = setInterval(onTick, 16, aboutText, splitAboutText, "#aboutPg1");
+    let intro = true;
 
     function onTick(text, split, id){
         const span = text.querySelectorAll(id)[char];
@@ -78,17 +92,20 @@ $( document ).ready(function() {
             if(!$('#arrow').hasClass('hidden')){
                 $('#about-close').removeClass('hidden');
             }
-            $('#arrow').removeClass('hidden');
 
             if(!$('#arrow2').hasClass('hidden')){
                 $('#why-close').removeClass('hidden');
             }
-            $('#arrow2').removeClass('hidden');
+
+            if(!intro){
+                $('#arrow').removeClass('hidden');
+                $('#arrow2').removeClass('hidden');
+            }
 
             if(whyClicked){
                 $('#why-close').removeClass('hidden');
             }
-
+ 
 
             return;
         }
@@ -101,11 +118,13 @@ $( document ).ready(function() {
     const promoContainer = document.querySelector('#promo-container');
     const mvContainer = document.querySelector('#mv-popUp');
     const loadingContainer = document.querySelector('.loading-container')
+    const aboutPage = document.querySelector('#about-page');
     const aboutContainer = document.querySelector('#about-container1');
     const aboutContainer2 = document.querySelector('#about-container2')
     const whyContainer = document.querySelector('#why-container');
     const whyContainer2 = document.querySelector('#why-container2');
     const whyPage = document.querySelector('#why-page');
+    const introContainer = document.querySelector('#intro-container');
 
   
     // adding a  time to nav bar
@@ -348,8 +367,12 @@ $( document ).ready(function() {
     about.addEventListener('dblclick',()=>{
         // const folder = document.querySelector();
         $('.blueScreen').removeClass('hidden');
-        loadingContainer.classList.remove('hidden');
+        aboutPage.classList.remove('hidden');
         pageTitle.textContent = "About Banana Split";
+        char = 0;
+        clearInterval(timer);
+        timer = setInterval(onTick, 16, aboutText, splitAboutText, "#aboutPg1"); 
+
     })
 
     $('#arrow').click(()=>{
@@ -381,7 +404,7 @@ $( document ).ready(function() {
         }, ()=>{$('#about-close').removeClass('close-border')})
     
         $('#about-nav').click(()=>{
-            const close = document.querySelector('.loading-container');
+            const close = document.querySelector('#about-page');
             $('.blueScreen').addClass('hidden');
             pageTitle.textContent = "";
             closeIt(close);
@@ -453,7 +476,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer, loadingContainer, whyPage];
+        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
@@ -464,6 +487,7 @@ $( document ).ready(function() {
         // closeIt(allFolders);
         const closeAgain = document.querySelector('.blueScreen');
         closeIt(closeAgain);
+        intro = false;
     })
 
     // dragging items

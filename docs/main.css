@@ -73,6 +73,16 @@ canvas{
     /* background-image: url('Assets/banana\ split\ site\ background.png split\ site\ background.png'); */
 }
 
+.logo{
+    height: 50px;
+    width: auto;
+}
+
+.loader{
+    /* pointer-events: none; */
+    margin: 0;
+}
+
 
 .showcase{
     z-index: -10;
@@ -332,8 +342,20 @@ h5{
     text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 
 }
-
-
+h6{
+    font-family: oscine, Tahoma;
+    font-weight: 700;
+    font-size: 30px;
+    font-style: italic;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    margin: auto;
+    text-shadow: 2px 2px #000000;
+    height: auto;
+    width: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 
 .loading-container{
