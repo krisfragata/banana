@@ -99,10 +99,10 @@ $( document ).ready(function() {
                 $('#why-close').removeClass('hidden');
             }
 
-            // if(!intro){
-            //     $('#arrow').removeClass('hidden');
-            //     $('#arrow2').removeClass('hidden');
-            // }
+            if(!intro){
+                $('#arrow').removeClass('hidden');
+                $('#arrow2').removeClass('hidden');
+            }
 
             if(whyClicked){
                 $('#why-close').removeClass('hidden');
@@ -128,6 +128,7 @@ $( document ).ready(function() {
     const whyPage = document.querySelector('#why-page');
     const introContainer = document.querySelector('#intro-container');
     const krisContainer = document.querySelector('#kris-container');
+    const creditContainer = document.querySelector('#credit-container');
 
 
     window.addEventListener('keydown',(e)=>{
@@ -320,11 +321,22 @@ $( document ).ready(function() {
 
     // functions and listeners for Kris Fragata title
     kris.addEventListener('click', ()=>{
+        if(intro==true){
+            closeIt(introContainer);
+        }
         $('.blueScreen').removeClass('hidden');
         $('#kris-container').removeClass('hidden');
     })
 
     // functions and listeners for process folder
+
+    // functions and listeners for credit folder
+    credit.addEventListener('dblclick', (e)=>{
+        const folder = document.querySelector('#credit-container');
+        pageTitle.textContent = "Credits";
+        $('.blueScreen').removeClass('hidden');
+        isItHidden(folder);
+    })
    
 
     // functions and listeners for promo folder
@@ -494,7 +506,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer, krisContainer];
+        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer, krisContainer, creditContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
