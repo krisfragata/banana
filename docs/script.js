@@ -48,10 +48,19 @@ $( document ).ready(function() {
     const strWhyText = whyText.textContent;
     const splitWhyText = strWhyText.split("");
 
+    const whyText2 = document.querySelector('#why-text2');
+    const strWhyText2 = whyText2.textContent;
+    const splitWhyText2 = strWhyText2.split("");
+
     // animating why bananas text
     whyText.textContent = "";
     for(let i=0; i<splitWhyText.length; i++){
         whyText.innerHTML +="<span class=\"animate\" id=\"whyPg\">" + splitWhyText[i] + "</span>";
+    }
+
+    whyText2.textContent = "";
+    for(let i=0; i<splitWhyText2.length; i++){
+        whyText2.innerHTML +="<span class=\"animate\" id=\"whyPg2\">" + splitWhyText2[i] + "</span>";
     }
 
     
@@ -71,9 +80,15 @@ $( document ).ready(function() {
             }
             $('#arrow').removeClass('hidden');
 
+            if(!$('#arrow2').hasClass('hidden')){
+                $('#why-close').removeClass('hidden');
+            }
+            $('#arrow2').removeClass('hidden');
+
             if(whyClicked){
                 $('#why-close').removeClass('hidden');
             }
+
 
             return;
         }
@@ -88,6 +103,9 @@ $( document ).ready(function() {
     const loadingContainer = document.querySelector('.loading-container')
     const aboutContainer = document.querySelector('#about-container1');
     const aboutContainer2 = document.querySelector('#about-container2')
+    const whyContainer = document.querySelector('#why-container');
+    const whyContainer2 = document.querySelector('#why-container2');
+    const whyPage = document.querySelector('#why-page');
 
   
     // adding a  time to nav bar
@@ -334,8 +352,6 @@ $( document ).ready(function() {
         pageTitle.textContent = "About Banana Split";
     })
 
-    $('#')
-
     $('#arrow').click(()=>{
         $('#about-close').removeClass('hidden');
         if(aboutContainer2.classList.contains('hidden')){
@@ -354,6 +370,8 @@ $( document ).ready(function() {
             timer = setInterval(onTick ,12, aboutText, splitAboutText, "#aboutPg1");
         }
     });
+
+
 
 
         // listeners for about 
@@ -380,6 +398,25 @@ $( document ).ready(function() {
         clearInterval(timer);
         timer = setInterval(onTick, 15, whyText, splitWhyText, "#whyPg");
     })
+
+    $('#arrow2').click(()=>{
+        $('#why-close').removeClass('hidden');
+        if(whyContainer2.classList.contains('hidden')){
+            whyContainer.classList.add('hidden');
+            whyContainer2.classList.remove('hidden');
+            char = 0;
+            clearInterval(timer);
+            timer = setInterval(onTick ,12, whyText2, splitWhyText2, "#whyPg2");
+
+        }
+        else{
+            whyContainer2.classList.add('hidden');
+            whyContainer.classList.remove('hidden');
+            char = 0;
+            clearInterval(timer);
+            timer = setInterval(onTick ,12, whyText, splitWhyText, "#whyPg");
+        }
+    });
 
     // listeners for why bananas 
     $('#why-close').hover(()=>{
@@ -416,7 +453,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer, loadingContainer];
+        let allFolders = [mvContainer, promoContainer, loadingContainer, whyPage];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
