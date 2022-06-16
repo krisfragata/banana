@@ -99,10 +99,10 @@ $( document ).ready(function() {
                 $('#why-close').removeClass('hidden');
             }
 
-            if(!intro){
-                $('#arrow').removeClass('hidden');
-                $('#arrow2').removeClass('hidden');
-            }
+            // if(!intro){
+            //     $('#arrow').removeClass('hidden');
+            //     $('#arrow2').removeClass('hidden');
+            // }
 
             if(whyClicked){
                 $('#why-close').removeClass('hidden');
@@ -127,12 +127,20 @@ $( document ).ready(function() {
     const whyContainer2 = document.querySelector('#why-container2');
     const whyPage = document.querySelector('#why-page');
     const introContainer = document.querySelector('#intro-container');
+    const krisContainer = document.querySelector('#kris-container');
 
 
-    // window.addEventListener('click',()=>{
-    //     closeIt(introContainer);
-    //     $('.blueScreen').addClass('hidden');
-    // })
+    window.addEventListener('keydown',(e)=>{
+        if(e.code == "Enter"){
+            console.log('enter');
+            if(intro === true){
+                intro = false;
+                closeIt(introContainer);
+                $('.blueScreen').addClass('hidden');
+            }
+        }
+        
+    })
 
   
     // adding a  time to nav bar
@@ -313,6 +321,7 @@ $( document ).ready(function() {
     // functions and listeners for Kris Fragata title
     kris.addEventListener('click', ()=>{
         $('.blueScreen').removeClass('hidden');
+        $('#kris-container').removeClass('hidden');
     })
 
     // functions and listeners for process folder
@@ -485,7 +494,7 @@ $( document ).ready(function() {
     };
     
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer];
+        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer, krisContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
