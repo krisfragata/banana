@@ -5,7 +5,7 @@ $( document ).ready(function() {
     const promo = document.querySelector('#promo-folder');
     const musicV = document.querySelector('#mv-folder');
     const game = document.querySelector('#game');
-    const why = document.querySelector('#why');
+    // const why = document.querySelector('#why');
     const file = document.querySelector('.file');
     const credit = document.querySelector('#credit');
     const about = document.querySelector('#about');
@@ -58,24 +58,24 @@ $( document ).ready(function() {
 
 
     // text elements for why bananas page
-    const whyText = document.querySelector('#why-text');
-    const strWhyText = whyText.textContent;
-    const splitWhyText = strWhyText.split("");
+    // const whyText = document.querySelector('#why-text');
+    // const strWhyText = whyText.textContent;
+    // const splitWhyText = strWhyText.split("");
 
-    const whyText2 = document.querySelector('#why-text2');
-    const strWhyText2 = whyText2.textContent;
-    const splitWhyText2 = strWhyText2.split("");
+    // const whyText2 = document.querySelector('#why-text2');
+    // const strWhyText2 = whyText2.textContent;
+    // const splitWhyText2 = strWhyText2.split("");
 
-    // animating why bananas text
-    whyText.textContent = "";
-    for(let i=0; i<splitWhyText.length; i++){
-        whyText.innerHTML +="<span class=\"animate\" id=\"whyPg\">" + splitWhyText[i] + "</span>";
-    }
+    // // animating why bananas text
+    // whyText.textContent = "";
+    // for(let i=0; i<splitWhyText.length; i++){
+    //     whyText.innerHTML +="<span class=\"animate\" id=\"whyPg\">" + splitWhyText[i] + "</span>";
+    // }
 
-    whyText2.textContent = "";
-    for(let i=0; i<splitWhyText2.length; i++){
-        whyText2.innerHTML +="<span class=\"animate\" id=\"whyPg2\">" + splitWhyText2[i] + "</span>";
-    }
+    // whyText2.textContent = "";
+    // for(let i=0; i<splitWhyText2.length; i++){
+    //     whyText2.innerHTML +="<span class=\"animate\" id=\"whyPg2\">" + splitWhyText2[i] + "</span>";
+    // }
 
     
     let char = 0;
@@ -104,9 +104,7 @@ $( document ).ready(function() {
                 $('#arrow2').removeClass('hidden');
             }
 
-            if(whyClicked){
-                $('#why-close').removeClass('hidden');
-            }
+    
  
 
             return;
@@ -123,9 +121,9 @@ $( document ).ready(function() {
     const aboutPage = document.querySelector('#about-page');
     const aboutContainer = document.querySelector('#about-container1');
     const aboutContainer2 = document.querySelector('#about-container2')
-    const whyContainer = document.querySelector('#why-container');
-    const whyContainer2 = document.querySelector('#why-container2');
-    const whyPage = document.querySelector('#why-page');
+    // const whyContainer = document.querySelector('#why-container');
+    // const whyContainer2 = document.querySelector('#why-container2');
+    // const whyPage = document.querySelector('#why-page');
     const introContainer = document.querySelector('#intro-container');
     const krisContainer = document.querySelector('#kris-container');
     const creditContainer = document.querySelector('#credit-container');
@@ -139,6 +137,22 @@ $( document ).ready(function() {
                 closeIt(introContainer);
                 $('.blueScreen').addClass('hidden');
             }
+        }
+        
+    })
+
+    window.addEventListener('keydown', (e)=>{
+        if(e.code == "Escape"){
+            console.log('escape');
+        $('.blueScreen').removeClass('hidden');
+            let allFolders = [mvContainer, promoContainer, aboutPage, introContainer, krisContainer, creditContainer];
+            for(let i = 0; i<allFolders.length; i++){
+                if(!allFolders[i].classList.contains('hidden')){
+                    allFolders[i].classList.add('hidden');
+                }
+            }
+        const closeAgain = document.querySelector('.blueScreen');
+        closeIt(closeAgain);
         }
         
     })
@@ -283,10 +297,10 @@ $( document ).ready(function() {
         areBorders(game);
     })
 
-    why.addEventListener('click', ()=>{
-        checkBorders();
-        areBorders(why);
-    })
+    // why.addEventListener('click', ()=>{
+    //     checkBorders();
+    //     areBorders(why);
+    // })
 
     credit.addEventListener('click', ()=>{
         checkBorders();
@@ -301,7 +315,7 @@ $( document ).ready(function() {
 
     // check borders
     function checkBorders(){
-        let allFolders = [process, promo, musicV, about, game, why, credit];
+        let allFolders = [process, promo, musicV, about, game, credit];
         for(let i = 0; i<allFolders.length; i++){
             removeBorders(allFolders[i]);
         }
@@ -327,7 +341,7 @@ $( document ).ready(function() {
         $('.blueScreen').removeClass('hidden');
         $('#kris-container').removeClass('hidden');
 
-        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, creditContainer];
+        let allFolders = [mvContainer, promoContainer, aboutPage, creditContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
@@ -449,47 +463,47 @@ $( document ).ready(function() {
 
 
         // why bananas
-    why.addEventListener('dblclick', ()=>{
-        $('.blueScreen').removeClass('hidden');
-        pageTitle.textContent = "why Bananas??"
-        $('#why-page').removeClass('hidden');
-        whyClicked = true;
-        char = 0;
-        clearInterval(timer);
-        timer = setInterval(onTick, 15, whyText, splitWhyText, "#whyPg");
-    })
+    // why.addEventListener('dblclick', ()=>{
+    //     $('.blueScreen').removeClass('hidden');
+    //     pageTitle.textContent = "why Bananas??"
+    //     $('#why-page').removeClass('hidden');
+    //     whyClicked = true;
+    //     char = 0;
+    //     clearInterval(timer);
+    //     timer = setInterval(onTick, 15, whyText, splitWhyText, "#whyPg");
+    // })
 
-    $('#arrow2').click(()=>{
-        $('#why-close').removeClass('hidden');
-        if(whyContainer2.classList.contains('hidden')){
-            whyContainer.classList.add('hidden');
-            whyContainer2.classList.remove('hidden');
-            char = 0;
-            clearInterval(timer);
-            timer = setInterval(onTick ,12, whyText2, splitWhyText2, "#whyPg2");
+    // $('#arrow2').click(()=>{
+    //     $('#why-close').removeClass('hidden');
+    //     if(whyContainer2.classList.contains('hidden')){
+    //         whyContainer.classList.add('hidden');
+    //         whyContainer2.classList.remove('hidden');
+    //         char = 0;
+    //         clearInterval(timer);
+    //         timer = setInterval(onTick ,12, whyText2, splitWhyText2, "#whyPg2");
 
-        }
-        else{
-            whyContainer2.classList.add('hidden');
-            whyContainer.classList.remove('hidden');
-            char = 0;
-            clearInterval(timer);
-            timer = setInterval(onTick ,12, whyText, splitWhyText, "#whyPg");
-        }
-    });
+    //     }
+    //     else{
+    //         whyContainer2.classList.add('hidden');
+    //         whyContainer.classList.remove('hidden');
+    //         char = 0;
+    //         clearInterval(timer);
+    //         timer = setInterval(onTick ,12, whyText, splitWhyText, "#whyPg");
+    //     }
+    // });
 
-    // listeners for why bananas 
-    $('#why-close').hover(()=>{
-        const link = document.querySelector('#why-close');
-        link.classList.add('close-border');
-    }, ()=>{$('#why-close').removeClass('close-border')})
+    // // listeners for why bananas 
+    // $('#why-close').hover(()=>{
+    //     const link = document.querySelector('#why-close');
+    //     link.classList.add('close-border');
+    // }, ()=>{$('#why-close').removeClass('close-border')})
 
-    $('#why-nav').click(()=>{
-        const close = document.querySelector('#why-page');
-        $('.blueScreen').addClass('hidden');
-        pageTitle.textContent = "";
-        closeIt(close);
-    })
+    // $('#why-nav').click(()=>{
+    //     const close = document.querySelector('#why-page');
+    //     $('.blueScreen').addClass('hidden');
+    //     pageTitle.textContent = "";
+    //     closeIt(close);
+    // })
 
     
 
@@ -511,9 +525,10 @@ $( document ).ready(function() {
     function closeIt(folder){
         isItHidden(folder);
     };
-    
+
+
     $('.blueScreen').click(()=>{
-        let allFolders = [mvContainer, promoContainer, aboutPage, whyPage, introContainer, krisContainer, creditContainer];
+        let allFolders = [mvContainer, promoContainer, aboutPage, introContainer, krisContainer, creditContainer];
         for(let i = 0; i<allFolders.length; i++){
             if(!allFolders[i].classList.contains('hidden')){
                 allFolders[i].classList.add('hidden');
