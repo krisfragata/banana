@@ -274,12 +274,9 @@ $( document ).ready(function() {
 
     process.addEventListener('click',()=>{
         checkBorders();
-        areBorders(process);
-    })
+        console.log('promo')
 
-    promo.addEventListener('click', ()=>{
-        checkBorders();
-        areBorders(promo);
+        areBorders(process);
     })
 
     musicV.addEventListener('click', ()=>{
@@ -361,12 +358,13 @@ $( document ).ready(function() {
    
 
     // functions and listeners for promo folder
-    promo.addEventListener('dblclick', (e)=>{
-        const folder = document.querySelector('#promo-container')
+    process.addEventListener('dblclick', (e)=>{
+        const folder = document.querySelector('#mv-popUp');
         lastClicked = folder;
+        console.log('promo');
         e.preventDefault();
         $('.blueScreen').removeClass('hidden');
-        pageTitle.textContent = "iterations";
+        pageTitle.textContent = "promo";
         isItHidden(folder);
         // areBorders
     });

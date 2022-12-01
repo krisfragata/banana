@@ -1,9 +1,23 @@
+let backOut;
+function preload(){
+  backOut= loadFont('assets/BackOut.otf');
+}
+
 function setup() {
-  createCanvas(200, 100);
+  let cnv = createCanvas(300, 150);
+  let x = 0;
+  let y = windowHeight - height;
+  textFont(backOut);
+  textSize(width / 3);
+  fill(0)
+  textAlign(CENTER, CENTER);
+
 }
 
 function draw() {
   background(233, 197, 118);
-  textSize(10);
-  text("all applications open with a double click", 0, 50);
+  let play = 'play me';
+  let time = millis;
+  // rotateX = (time/1000);
+  text = (play, 0, 0);
 }
